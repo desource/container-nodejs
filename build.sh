@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 set -eux
 
-BASE=$PWD
 SRC=$PWD/src
-OUT=$PWD/build
+OUT=$PWD/out
 ROOTFS=$PWD/rootfs
 
 mkdir -p $OUT $ROOTFS
@@ -14,12 +13,12 @@ curl -sL 'https://github.com/gliderlabs/docker-alpine/blob/rootfs/library-edge/v
 mv $ROOTFS/etc/localtime $ROOTFS/usr/share/zoneinfo
 ln -s /usr/share/zoneinfo $ROOTFS/etc/localtime 
 
-cat <<EOF > $OUT/etc/passwd
+cat <<EOF > $ROOTFS/etc/passwd
 root:x:0:0:root:/:/dev/null
 nobody:x:65534:65534:nogroup:/:/dev/null
 EOF
 
-cat <<EOF > $OUT/etc/group
+cat <<EOF > $ROOTFS/etc/group
 root:x:0:
 nogroup:x:65534:
 EOF

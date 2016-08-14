@@ -10,8 +10,7 @@ run:
   path: src/build.sh
     
 inputs:
-  - name: nodejs-src
-    path: src
+  - name: src
 
 outputs:
   - name: build

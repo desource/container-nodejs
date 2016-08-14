@@ -8,8 +8,8 @@ ROOTFS=$PWD/rootfs
 
 mkdir -p $OUT $ROOTFS
 
-curl -sL https://github.com/gliderlabs/docker-alpine/blob/rootfs/library-edge/versions/library-edge/rootfs.tar.gz?raw=true | \
-    tar -xf -C $ROOTFS
+curl -sL 'https://github.com/gliderlabs/docker-alpine/blob/rootfs/library-edge/versions/library-edge/rootfs.tar.gz?raw=true' | \
+    tar -C $ROOTFS -zxf -
 
 mv $ROOTFS/etc/localtime $ROOTFS/usr/share/zoneinfo
 ln -s /usr/share/zoneinfo $ROOTFS/etc/localtime 
